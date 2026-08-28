@@ -1,0 +1,36 @@
+# LaTeX 中间产物
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
+*.bbl
+*.blg
+*.lof
+*.lot
+*.bcf
+*.run.xml
+*.xdv
+
+# 编译产物 PDF（本地 ./build.sh 生成，不入库）
+main.pdf
+试读版/试读版.pdf
+# 若未来 imgs/ 下有插图 PDF 需提交，用 !imgs/xxx.pdf 取消忽略
+
+# 备份文件（版本管理交给 git）
+*.bak-*
+
+# Python
+__pycache__/
+
+# 本地设置
+.claude/settings.local.json
+.DS_Store
+
+# 版权材料：参考书 OCR 全文不入公开仓库，本地保留
+references/李三希-数字经济概论-OCR.txt

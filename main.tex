@@ -1,0 +1,165 @@
+\documentclass[twoside,10pt,openany]{ctexbook}
+\usepackage{microtype}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable, theorems}
+\usepackage{graphicx}
+\graphicspath{ {./imgs/} }
+\usepackage{float}
+
+% TikZ 矢量图
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, calc, decorations.pathreplacing, shapes.geometric, fit, backgrounds}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% 1. 颜色定义
+\usepackage[svgnames]{xcolor}
+\definecolor{winered}{rgb}{0.5,0,0}
+\definecolor{structurecolor}{RGB}{122,122,142}
+\definecolor{main}{named}{RoyalBlue} % 重点强调色：宝蓝色
+\definecolor{second}{HTML}{627581}
+\definecolor{third}{HTML}{9D8798}
+
+% 2. 页面设置：单行 + 宽外页边距（容纳页边注）
+\usepackage[a4paper,
+    inner=24mm, outer=50mm,
+    vmargin=25mm,
+    headheight=15pt,
+    headsep=5mm,
+    footskip=10mm]{geometry}
+
+% 页边注（原生 marginpar：与新版 LaTeX 内核兼容，twoside 下自动放外侧）
+\setlength{\marginparsep}{7mm}
+\setlength{\marginparwidth}{37mm}
+\newcommand{\mn}[1]{\marginpar{\parbox{\marginparwidth}{\raggedright\footnotesize\color{structurecolor}#1}}} % 页边注统一命令
+
+% 页眉
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\thepage}
+\fancyhead[LE,RO]{\slshape \rightmark}
+\fancyhead[LO,RE]{\slshape \leftmark}
+
+% 3. 字体与排版
+\usepackage[nofontspec]{newpxtext} % 专业西文字体
+\usepackage{fontspec}
+\setCJKmainfont[BoldFont=STSongti-SC-Bold]{STSongti-SC-Regular}
+\usepackage{setspace}
+\setstretch{1.3} % 1.3倍行距
+\setlength{\parskip}{0.5em} % 段间距
+
+% 4. 定理环境（仅定义与案例；本书不使用 theorem/lemma/corollary/proposition/example/think/remark/proof/solution）
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\newtheoremstyle{defstyle}{6pt}{6pt}{}{}{\bfseries\color{main}}{}{0.5em}{\indent \thmname{#1}\thmnumber{#2}\enspace\thmnote{#3}\quad}
+
+\theoremstyle{defstyle}
+\newtheorem{definition}{定义}[chapter]
+\newtheorem{case}{案例}[chapter]
+
+% 5. 专属环境：考情导览 / 推导 / 误区（简洁样式：白底细框，加粗彩色编号标题）
+\newtcolorbox{examguide}[1][]{%
+    enhanced, breakable,
+    colback=white, colframe=main,
+    boxrule=0.6pt, arc=1mm,
+    title={\textbf{考情导览}}, fonttitle=\bfseries\color{main},
+    colbacktitle=white, coltitle=main,
+    titlerule=0.4pt, toptitle=2pt, bottomtitle=2pt,
+    #1}
+
+\newtcbtheorem[number within=chapter]{derivation}{推导}{%
+    enhanced, breakable,
+    colback=white, colframe=second,
+    boxrule=0.6pt, arc=1mm,
+    fonttitle=\bfseries\color{second},
+    colbacktitle=white, coltitle=second,
+    titlerule=0.4pt, toptitle=2pt, bottomtitle=2pt,
+    description font=\mdseries\color{second},
+}{der}
+
+\newtcolorbox{misconception}[1][]{%
+    enhanced, breakable,
+    colback=white, colframe=winered,
+    boxrule=0.6pt, arc=1mm,
+    title={\textbf{常见误区}}, fonttitle=\bfseries\color{winered},
+    colbacktitle=white, coltitle=winered,
+    titlerule=0.4pt, toptitle=2pt, bottomtitle=2pt,
+    #1}
+
+\newtcolorbox{chapterbox}[1][]{%
+    enhanced, breakable,
+    colback=white, colframe=third,
+    boxrule=0.6pt, arc=1mm,
+    title={\textbf{考点清单}}, fonttitle=\bfseries\color{third},
+    colbacktitle=white, coltitle=third,
+    titlerule=0.4pt, toptitle=2pt, bottomtitle=2pt,
+    #1}
+
+\newcommand{\intro}[1]{\rightline{\parbox[t]{5cm}{\footnotesize \fangsong\quad\quad #1 }}}
+\newcommand{\important}[1]{{\color{blue}\textbf{#1}}} % 重点强调：蓝色标注
+
+% 6. 引用
+\usepackage{hyperref}
+\hypersetup{colorlinks = true, linktoc=all, linkcolor=black, urlcolor=winered}
+
+% 7. 列表间距
+\usepackage{enumitem}
+\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=1pt}
+\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=1pt}
+\setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=1pt}
+
+\usepackage{subfiles} % 分拆
+
+%----------------------------------------------------------
+% TITLE
+%----------------------------------------------------------
+
+\title{数字经济一本通关}
+\author{Korson Academy}
+
+\begin{document}
+
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+%----------------------------------------------------------
+
+\subfile{sections/0.前言.tex}
+\newpage
+\subfile{sections/1.数字经济总论.tex}
+\newpage
+\subfile{sections/2.数学与博弈论工具.tex}
+\newpage
+\subfile{sections/3.网络外部性与需求方规模经济.tex}
+\newpage
+\subfile{sections/4.平台经济与双边市场.tex}
+\newpage
+\subfile{sections/5.平台定价商业模式与价格歧视.tex}
+\newpage
+\subfile{sections/6.数字市场竞争与平台反垄断.tex}
+\newpage
+\subfile{sections/7.数据要素确权定价与数据资产.tex}
+\newpage
+\subfile{sections/8.数字经济与经济增长.tex}
+\newpage
+\subfile{sections/9.数字经济与就业收入分配.tex}
+\newpage
+\subfile{sections/10.数字金融金融科技与央行数字货币.tex}
+\newpage
+\subfile{sections/11.数字产业化产业数字化与数字贸易.tex}
+\newpage
+\subfile{sections/12.数据治理隐私保护与数字经济税收.tex}
+\newpage
+\subfile{sections/13.数字经济计量与因果推断方法.tex}
+\newpage
+\subfile{sections/14.前沿专题人工智能大模型与Web3.tex}
+\newpage
+\subfile{sections/15.总结数字企业生命周期.tex}
+
+%----------------------------------------------------------
+
+\end{document}
