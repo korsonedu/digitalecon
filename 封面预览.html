@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《数字经济一本通关》封面 · 三方案</title>
+<!--
+  封面设计预览页：三个方案各为一页 A4（210×296mm）封面。
+  用法：双击浏览器打开对比；浏览器菜单「打印」→ 另存为 PDF，即得每方案一页的 A4 成品。
+  与 main.tex 完全独立，不影响 LaTeX 编译。
+-->
+<style>
+/* ==================== 预览页基础 ==================== */
+* { margin:0; padding:0; box-sizing:border-box; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+body { background:#252a31; font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",sans-serif; padding:44px 0 64px; }
+.serif { font-family:"Songti SC","STSong","SimSun",serif; }
+.page-head { text-align:center; color:#e8eaee; margin-bottom:36px; }
+.page-head h1 { font-size:19px; font-weight:600; letter-spacing:.1em; }
+.page-head p  { font-size:12px; color:#8f98a3; margin-top:8px; letter-spacing:.05em; }
+.page-label { width:480px; margin:52px auto 14px; color:#a6aeb8; font-size:13px; letter-spacing:.08em; }
+.page-label b { color:#fff; font-weight:600; }
+.page-label .desc { color:#7d8691; font-size:12px; margin-left:10px; }
+.frame { width:480px; height:677px; margin:0 auto; overflow:hidden; box-shadow:0 12px 48px rgba(0,0,0,.55); background:#fff; }
+.cover { width:210mm; height:296mm; transform:scale(.6048); transform-origin:0 0; position:relative; overflow:hidden; }
+
+/* ==================== 方案一 · 科技深蓝 ==================== */
+.cover-tech { background:linear-gradient(158deg,#071a3d 0%,#0a2653 46%,#0d356f 100%); color:#fff; }
+.tech-grid { position:absolute; inset:0;
+  background-image:
+    repeating-linear-gradient(0deg,rgba(255,255,255,.028) 0 .3mm,transparent .3mm 9mm),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.028) 0 .3mm,transparent .3mm 9mm); }
+.tech-net { position:absolute; inset:0; width:100%; height:100%; }
+.tech-glow { position:absolute; left:20mm; top:58mm; width:170mm; height:170mm; border-radius:50%;
+  background:radial-gradient(closest-side,rgba(56,189,248,.16),transparent 72%); }
+.tech-horizon { position:absolute; left:0; right:0; bottom:0; height:60mm;
+  background:linear-gradient(0deg,rgba(56,189,248,.12),transparent); }
+.tech-frame { position:absolute; inset:6mm; border:.35mm solid rgba(125,231,255,.22); }
+.tc { position:absolute; width:6mm; height:6mm; }
+.tc-tl { top:6mm; left:6mm; border-top:.6mm solid rgba(125,231,255,.65); border-left:.6mm solid rgba(125,231,255,.65); }
+.tc-tr { top:6mm; right:6mm; border-top:.6mm solid rgba(125,231,255,.65); border-right:.6mm solid rgba(125,231,255,.65); }
+.tc-bl { bottom:6mm; left:6mm; border-bottom:.6mm solid rgba(125,231,255,.65); border-left:.6mm solid rgba(125,231,255,.65); }
+.tc-br { bottom:6mm; right:6mm; border-bottom:.6mm solid rgba(125,231,255,.65); border-right:.6mm solid rgba(125,231,255,.65); }
+.tech-content { position:relative; z-index:2; height:100%; display:flex; flex-direction:column;
+  justify-content:space-between; padding:19mm 18mm 15mm; }
+.tech-top { display:flex; justify-content:space-between; align-items:center; }
+.tech-logo { display:flex; align-items:center; gap:2.6mm; }
+.tech-logo i { display:block; width:3.8mm; height:3.8mm; background:#4fd8eb; transform:rotate(45deg); }
+.tech-logo span { font-size:9pt; letter-spacing:.9mm; color:rgba(255,255,255,.85); }
+.tech-en { font-size:9pt; letter-spacing:.9mm; color:rgba(125,231,255,.75); }
+.tech-center { text-align:center; }
+.tech-kicker { font-size:11pt; letter-spacing:.55em; text-indent:.55em; color:rgba(125,231,255,.92); }
+.tech-title { margin-top:9mm; }
+.tech-title .l1 { font-size:55pt; font-weight:800; letter-spacing:.14em; text-indent:.14em; line-height:1.26; color:#fff; }
+.tech-title .l2 { font-size:55pt; font-weight:800; letter-spacing:.14em; text-indent:.14em; line-height:1.26;
+  background:linear-gradient(92deg,#ffffff 30%,#a5f3fc 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.tech-divider { width:26mm; height:.45mm; background:rgba(125,231,255,.6); margin:9mm auto; }
+.tech-sub { font-size:12pt; letter-spacing:.28em; text-indent:.28em; color:rgba(214,232,255,.78); }
+.tech-chips { margin-top:9mm; display:flex; justify-content:center; gap:3.2mm; }
+.tech-chips span { border:.35mm solid rgba(125,231,255,.35); border-radius:99mm; padding:1.5mm 3.4mm;
+  font-size:10pt; letter-spacing:.12em; color:rgba(214,240,255,.85); }
+.tech-foot { display:flex; align-items:center; justify-content:center; gap:4mm; }
+.tech-foot .h { width:15mm; height:.3mm; background:rgba(125,231,255,.35); }
+.tech-foot span { font-size:10pt; letter-spacing:1.4mm; text-indent:1.4mm; color:rgba(255,255,255,.72); }
+
+/* ==================== 方案二 · 经典白底考研风 ==================== */
+.cover-classic { background:#fff; color:#16223f; display:flex; flex-direction:column; }
+.cls-band { height:21mm; background:#4169E1; color:#fff; display:flex; justify-content:space-between;
+  align-items:center; padding:0 15mm; }
+.cls-band .l { font-size:9.5pt; letter-spacing:.9mm; }
+.cls-band .r { font-size:11pt; letter-spacing:.4mm; opacity:.92; }
+.cls-hairline { height:.3mm; background:#e4e7ee; }
+.cls-main { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; position:relative; }
+.cls-stamp { position:absolute; top:30mm; right:18mm; width:14mm; height:14mm; border:.55mm solid #800000;
+  color:#800000; font-size:13pt; font-weight:700; letter-spacing:.1em; display:flex; align-items:center;
+  justify-content:center; transform:rotate(7deg); }
+.cls-badge { font-size:14pt; letter-spacing:.8em; text-indent:.8em; color:#4169E1; border:.4mm solid #4169E1;
+  padding:1.8mm 2.4mm 1.8mm 3.2mm; margin-bottom:11mm; }
+.cls-title { font-size:68pt; font-weight:900; letter-spacing:.1em; text-indent:.1em; line-height:1.16; color:#16223f; }
+.cls-bar { width:44mm; height:2.3mm; margin-top:9mm;
+  background:linear-gradient(90deg,#4169E1 0 60%,#800000 60% 100%); }
+.cls-sub { margin-top:9mm; font-size:13pt; letter-spacing:.12em; color:#5c6470; }
+.cls-ribbon { height:17mm; background:#4169E1; color:#fff; display:flex; align-items:center; justify-content:center;
+  font-size:12pt; letter-spacing:.5em; text-indent:.5em; }
+.cls-foot { height:12mm; background:#16223f; color:#fff; display:flex; align-items:center; justify-content:center;
+  font-size:8.5pt; letter-spacing:1.2mm; text-indent:1.2mm; }
+
+/* ==================== 方案三 · 极简几何学术 ==================== */
+.cover-minimal { background:#f7f7f4; color:#2f2f2f; }
+.min-frame { position:absolute; inset:5.5mm; border:.3mm solid #e8e8e1; }
+.min-shape { position:absolute; }
+.min-circle { width:80mm; height:80mm; border-radius:50%; border:.5mm solid #627581; right:-26mm; top:28mm; }
+.min-sq { width:8.5mm; height:8.5mm; border:.5mm solid #9D8798; left:34mm; top:40mm; transform:rotate(45deg); }
+.min-dot { width:4mm; height:4mm; border-radius:50%; background:#627581; left:22mm; top:42mm; }
+.min-line { width:26mm; height:.5mm; background:#9D8798; left:24mm; top:57mm; }
+.min-sq2 { width:9mm; height:9mm; border:.5mm solid #627581; left:36mm; bottom:50mm; }
+.min-content { position:relative; z-index:2; height:100%; display:flex; flex-direction:column;
+  justify-content:space-between; align-items:center; text-align:center; padding:42mm 0 28mm; }
+.min-top { font-size:9.5pt; letter-spacing:.7em; text-indent:.7em; color:#b2b2ae; }
+.min-title { display:flex; flex-direction:column; align-items:center; }
+.min-title .t { font-size:48pt; letter-spacing:.42em; text-indent:.42em; line-height:1.42; color:#333; }
+.min-rule { width:20mm; height:.4mm; background:#c9c9c3; margin-top:10mm; }
+.min-sub { margin-top:8mm; font-size:12pt; letter-spacing:.14em; text-indent:.14em; color:#9a9a97; }
+.min-foot { font-size:8.5pt; letter-spacing:1.1mm; text-indent:1.1mm; color:#8f8f8c; }
+
+/* ==================== 打印导出（A4，每方案一页） ==================== */
+@media print {
+  body { background:#fff; padding:0; }
+  .page-head, .page-label { display:none; }
+  .frame { width:210mm; height:296mm; overflow:visible; box-shadow:none; margin:0; }
+  .cover { transform:none; break-after:page; }
+  .frame:last-of-type .cover { break-after:auto; }
+  @page { size:A4 portrait; margin:0; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-head">
+  <h1>《数字经济一本通关》封面设计 · 三方案对比</h1>
+  <p>三个方案均为 A4 单页独立设计 · 浏览器「打印 → 另存为 PDF」即可导出成品</p>
+</div>
+
+<!-- ============ 方案一 · 科技深蓝 ============ -->
+<div class="page-label"><b>方案一 · 科技深蓝</b><span class="desc">深蓝渐变 + 数字网络纹理 + 青色高光，切合数字经济主题</span></div>
+<div class="frame">
+<section class="cover cover-tech">
+  <div class="tech-grid"></div>
+  <svg class="tech-net" viewBox="0 0 210 296" aria-hidden="true">
+    <path d="M30 58 L50 40 L72 64 L52 88 Z M50 40 L26 82 M30 58 L26 82
+             M176 122 L158 142 L188 153 L173 175 M192 119 L176 122 M192 119 L188 153
+             M33 218 L56 205 L61 235 L86 222 M33 218 L61 235 M56 205 L86 222
+             M184 236 L196 255 L178 262 Z"
+          fill="none" stroke="rgba(125,231,255,.28)" stroke-width=".5"/>
+    <g fill="none" stroke="rgba(125,231,255,.5)" stroke-width=".45">
+      <circle cx="30" cy="58" r=".9"/><circle cx="50" cy="40" r=".9"/>
+      <circle cx="72" cy="64" r=".9"/><circle cx="52" cy="88" r=".9"/><circle cx="26" cy="82" r=".9"/>
+      <circle cx="176" cy="122" r=".9"/><circle cx="158" cy="142" r=".9"/>
+      <circle cx="188" cy="153" r=".9"/><circle cx="173" cy="175" r=".9"/><circle cx="192" cy="119" r=".9"/>
+      <circle cx="33" cy="218" r=".9"/><circle cx="56" cy="205" r=".9"/>
+      <circle cx="61" cy="235" r=".9"/><circle cx="86" cy="222" r=".9"/>
+      <circle cx="184" cy="236" r=".9"/><circle cx="196" cy="255" r=".9"/><circle cx="178" cy="262" r=".9"/>
+    </g>
+    <g fill="rgba(125,231,255,.2)">
+      <circle cx="72" cy="64" r="1.5"/><circle cx="188" cy="153" r="1.5"/>
+    </g>
+    <g fill="none" stroke="rgba(125,231,255,.28)">
+      <circle cx="106" cy="28" r=".9"/><circle cx="148" cy="46" r=".9"/>
+      <circle cx="40" cy="150" r=".9"/><circle cx="190" cy="80" r=".9"/>
+    </g>
+  </svg>
+  <div class="tech-glow"></div>
+  <div class="tech-horizon"></div>
+  <div class="tech-frame"></div>
+  <i class="tc tc-tl"></i><i class="tc tc-tr"></i><i class="tc tc-bl"></i><i class="tc tc-br"></i>
+  <div class="tech-content">
+    <div class="tech-top">
+      <div class="tech-logo"><i></i><span>KORSOR ACADEMY</span></div>
+      <div class="tech-en">DIGITAL ECONOMY</div>
+    </div>
+    <div class="tech-center">
+      <div class="tech-kicker">0258 数字经济考研辅导教材</div>
+      <div class="tech-title">
+        <div class="l1">数字经济</div>
+        <div class="l2">一本通关</div>
+      </div>
+      <div class="tech-divider"></div>
+      <div class="tech-sub">全书 15 章</div>
+      <div class="tech-chips"><span>平台经济</span><span>数字金融</span><span>人工智能</span><span>Web3</span></div>
+    </div>
+    <div class="tech-foot"><i class="h"></i><span>KORSOR ACADEMY</span><i class="h"></i></div>
+  </div>
+</section>
+</div>
+
+<!-- ============ 方案二 · 经典白底考研风 ============ -->
+<div class="page-label"><b>方案二 · 经典白底考研风</b><span class="desc">白底超大书名 + 蓝红色带 + 印章，传统考研教材路线</span></div>
+<div class="frame">
+<section class="cover cover-classic">
+  <div class="cls-band"><span class="l">KORSOR ACADEMY</span><span class="r">考研辅导教材</span></div>
+  <div class="cls-hairline"></div>
+  <div class="cls-main">
+    <div class="cls-stamp">考研</div>
+    <div class="cls-badge">0258</div>
+    <div class="cls-title">数字经济</div>
+    <div class="cls-title">一本通关</div>
+    <div class="cls-bar"></div>
+    <div class="cls-sub">0258 数字经济考研辅导教材 · 全书 15 章</div>
+  </div>
+  <div class="cls-ribbon">平台经济 · 数字金融 · 人工智能 · Web3</div>
+  <div class="cls-foot">KORSOR ACADEMY</div>
+</section>
+</div>
+
+<!-- ============ 方案三 · 极简几何学术 ============ -->
+<div class="page-label"><b>方案三 · 极简几何学术</b><span class="desc">留白 + 细线几何图形 + 宋体书名，克制的学术感</span></div>
+<div class="frame">
+<section class="cover cover-minimal">
+  <div class="min-frame"></div>
+  <div class="min-shape min-circle"></div>
+  <div class="min-shape min-sq"></div>
+  <div class="min-shape min-dot"></div>
+  <div class="min-shape min-line"></div>
+  <div class="min-shape min-sq2"></div>
+  <div class="min-content">
+    <div class="min-top">0258 · DIGITAL ECONOMY</div>
+    <div class="min-title serif">
+      <div class="t">数字经济</div>
+      <div class="t">一本通关</div>
+      <div class="min-rule"></div>
+      <div class="min-sub">0258 数字经济考研辅导教材 · 全书 15 章</div>
+    </div>
+    <div class="min-foot">KORSOR ACADEMY</div>
+  </div>
+</section>
+</div>
+
+</body>
+</html>
